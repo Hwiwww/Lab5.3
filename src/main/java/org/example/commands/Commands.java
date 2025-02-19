@@ -1,10 +1,10 @@
 package org.example.commands;
 
 // Абстрактный класс команды, общие свойства всех команд
-public abstract class Command {
+public abstract class Commands {
     private final String name;
 
-    protected Command(String name) {
+    protected Commands(String name) {
         this.name = name;
     }
 
