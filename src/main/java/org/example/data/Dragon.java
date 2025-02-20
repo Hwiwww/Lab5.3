@@ -30,7 +30,7 @@ public class Dragon {
         this.setCave(cave);
     }
 
-    // сеттер имени ; не может быть null, не может быть пустой
+
     public void setName(String name) {
         if (name != null && name.isBlank()) {
             this.name = name;
@@ -39,7 +39,7 @@ public class Dragon {
         }
     }
 
-    // сеттер координат ; не могут быть null
+
     public void setCoordinates(Coordinates coordinates) {
         if (coordinates != null) {
             this.coordinates = coordinates;

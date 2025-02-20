@@ -5,7 +5,7 @@ import static a.CommandManager.commandList;
 
 
 // Выводит справку по доступным командам
-public class Help extends Command {
+public class Help extends Commands {
 
     public Help() {
         super("help");

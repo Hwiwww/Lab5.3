@@ -7,13 +7,13 @@ public class InfoCommand extends Commands {
 
     @Override
     public void execute() {
-        System.out.println("вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)");
+        System.out.println("Collection type: dragon \n I" );
 
     }
 
     @Override
     public String getDescription() {
-        return "This is the information command";
+        return "show information about collection";
     }
 
 }
