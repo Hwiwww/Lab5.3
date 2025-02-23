@@ -11,7 +11,7 @@ public abstract class Commands {
     }
 
 
-    public abstract void execute();
+    public abstract void execute(String[] args);
 
 
     public String getName() {

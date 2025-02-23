@@ -25,7 +25,8 @@ public class CollectionManager {
     public void add(Dragon dragon) {
         if (hashTable == null) {
             hashTable = new Hashtable<>();
-        } hashTable.put(dragon.getName(), dragon);
+        }
+        hashTable.put(dragon.getName(), dragon);
     }
 
     public static long getSumOfAges() {

@@ -9,7 +9,7 @@ public class Info extends Commands {
     }
 
     @Override
-    public void execute() {
+    public void execute(String[] args) {
         System.out.println("collection type: " + CollectionManager.getCollection().getClass().getSimpleName());
         System.out.println("element type: " + Dragon.class.getSimpleName());
         System.out.println("initialization date: " + CollectionManager.getInitializationDate());

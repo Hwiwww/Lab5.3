@@ -8,7 +8,7 @@ public class Clear extends Commands {
     }
 
     @Override
-    public void execute() {
+    public void execute(String[] args) {
         CollectionManager.getCollection().clear();
         System.out.println("Collection is cleared.");
     }

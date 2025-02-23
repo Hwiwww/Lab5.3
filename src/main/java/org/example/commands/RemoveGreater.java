@@ -1,0 +1,24 @@
+package org.example.commands;
+
+import org.example.a.CollectionManager;
+
+public class RemoveGreater extends Commands {
+    public RemoveGreater() {
+        super("remove_greater");
+    }
+
+    @Override
+    public void execute(String[] args) {
+        CollectionManager.getCollection().forEach((h, dragon) -> {
+            if (dragon.getWeight() > Integer.parseInt(args[0])) {
+                CollectionManager.getCollection().remove(h);
+            }
+        });
+
+    }
+
+    @Override
+    public String getDescription() {
+        return "this command deletes all items from the collection that exceed the specified value.";
+    }
+}

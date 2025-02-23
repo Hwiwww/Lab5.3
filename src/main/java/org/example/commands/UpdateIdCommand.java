@@ -2,16 +2,16 @@ package org.example.commands;
 
 public class UpdateIdCommand extends Commands {
     public UpdateIdCommand() {
-        super("Update id");
+        super("update id");
     }
 
     @Override
-    public void execute() {
+    public void execute(String[] args) {
         System.out.println("обновить значение элемента коллекции, id которого равен заданному");
     }
 
     @Override
     public String getDescription() {
-        return "This command updates the value of a collection item using id.";
+        return "this command updates the value of a collection item using id.";
     }
 }

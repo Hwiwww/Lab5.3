@@ -11,7 +11,7 @@ public class Help extends Commands {
         super("help");
     }
     @Override
-    public void execute() {
+    public void execute(String[] args) {
         // System.out.println(commandList.get("help").getName() + ": " + commandList.get("help").getDescription());
         commandList.forEach((s, command) -> {
             System.out.println(s + ": " + command.getDescription());

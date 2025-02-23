@@ -8,7 +8,7 @@ public class SumOfAge extends Commands {
     }
 
     @Override
-    public void execute() {
+    public void execute(String[] args) {
         System.out.println("sum of ages for all items in the collection: " + CollectionManager.getSumOfAges());
     }
 
