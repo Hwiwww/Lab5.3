@@ -1,8 +1,10 @@
 package org.example.commands;
 
 
+import org.example.a.CollectionManager;
+
 public abstract class Commands {
-    private final String name;
+    public final String name;
 
     protected Commands(String name) {
         this.name = name;
