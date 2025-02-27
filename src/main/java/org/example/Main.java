@@ -1,18 +1,19 @@
 package org.example;
 
-import org.example.a.CollectionManager;
+import org.example.system.CollectionManager;
 import org.example.commands.Commands;
+import org.example.system.CommandManager;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-import static a.CommandManager.commandList;
+import static org.example.system.CommandManager.commandList;
 
 public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        a.CommandManager commandManager = new a.CommandManager();
+        CommandManager commandManager = new CommandManager();
         CollectionManager collectionManager = new CollectionManager();
 
         while (scanner.hasNextLine()) {
@@ -23,7 +24,7 @@ public class Main {
 
             if (commandList.containsKey(lineCommand)) { // либо через keySet().contains
                 Commands command = commandList.get(lineCommand);
-                command.execute();
+                command.execute(arguments);
             } else {
                 System.err.println("Unknown command: " + lineCommand);
             }

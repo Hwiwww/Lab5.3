@@ -1,12 +1,10 @@
 package org.example.commands;
 
-import org.example.a.CollectionManager;
 import org.example.data.Dragon;
 
-import java.util.Collection;
 import java.util.Hashtable;
 
-import static org.example.a.CollectionManager.hashTable;
+import static org.example.system.CollectionManager.hashTable;
 
 public class Show extends Commands {
     public Show() {

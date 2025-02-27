@@ -1,10 +1,9 @@
 package org.example.data;
 
 import java.time.LocalDateTime;
-import org.example.a.IdGenerator;
 
 public class Dragon {
-    private final long id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
+    private long id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
     private java.time.LocalDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
@@ -30,6 +29,14 @@ public class Dragon {
         this.setCave(cave);
     }
 
+    public Dragon() {
+
+    }
+
+    public Dragon(Long id) {
+        this.id = id;
+    }
+
 
     public void setName(String name) {
         if (name != null && name.isBlank()) {
@@ -46,6 +53,10 @@ public class Dragon {
         } else {
             throw new IllegalArgumentException("");
         }
+    }
+
+    public void setCreationDate(LocalDateTime creationDate) {
+        this.creationDate = creationDate;
     }
 
 

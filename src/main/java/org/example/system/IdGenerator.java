@@ -1,4 +1,4 @@
-package org.example.a;
+package org.example.system;
 
 public class IdGenerator {
     private static final int max = 1000000;

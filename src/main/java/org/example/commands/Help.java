@@ -1,7 +1,7 @@
 package org.example.commands;
 
 
-import static a.CommandManager.commandList;
+import static org.example.system.CommandManager.commandList;
 
 
 // Выводит справку по доступным командам

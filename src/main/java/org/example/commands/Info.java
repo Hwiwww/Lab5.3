@@ -1,6 +1,6 @@
 package org.example.commands;
 
-import org.example.a.CollectionManager;
+import org.example.system.CollectionManager;
 import org.example.data.Dragon;
 
 public class Info extends Commands {

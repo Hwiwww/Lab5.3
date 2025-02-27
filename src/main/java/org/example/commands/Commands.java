@@ -1,8 +1,6 @@
 package org.example.commands;
 
 
-import org.example.a.CollectionManager;
-
 public abstract class Commands {
     public final String name;
 

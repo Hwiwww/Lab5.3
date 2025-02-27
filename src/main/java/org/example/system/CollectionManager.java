@@ -1,10 +1,8 @@
-package org.example.a;
+package org.example.system;
 
-import org.example.a.IdGenerator;
 import org.example.data.Dragon;
 
 import java.time.LocalDate;
-import java.util.Collection;
 import java.util.Hashtable;
 
 public class CollectionManager {
@@ -22,11 +20,11 @@ public class CollectionManager {
     }
 
     // Добавление нового дракона
-    public void add(Dragon dragon) {
+    public static void add(String key, Dragon dragon) {
         if (hashTable == null) {
             hashTable = new Hashtable<>();
         }
-        hashTable.put(dragon.getName(), dragon);
+        hashTable.put(key, dragon);
     }
 
     public static long getSumOfAges() {

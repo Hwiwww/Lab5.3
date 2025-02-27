@@ -1,10 +1,10 @@
 package org.example.commands;
 
-import org.example.a.CollectionManager;
+import org.example.system.CollectionManager;
 
-public class RemoveKeyNullCommand extends Commands{
-    public RemoveKeyNullCommand(){
-        super("remove_key null");
+public class Remove extends Commands{
+    public Remove() {
+        super("remove");
     }
 
     @Override

@@ -1,10 +1,8 @@
 package org.example.commands;
 
-import org.example.a.CollectionManager;
-
-public class RemoveIfGreaterNull extends Commands{
-    public RemoveIfGreaterNull(){
-        super("remove if greater null");
+public class ReplaceIfGreater extends Commands{
+    public ReplaceIfGreater(){
+        super("replace_if_greater");
     }
 
     @Override
