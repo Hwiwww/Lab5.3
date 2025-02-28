@@ -9,7 +9,7 @@ public class Remove extends Commands{
 
     @Override
     public void execute(String[] args) {
-       CollectionManager.getCollection().remove(args[0]);
+        CollectionManager.getCollection().remove(args[0]);
         System.out.println("you have removed an item from the collection.");
     }
 

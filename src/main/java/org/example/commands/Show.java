@@ -15,7 +15,6 @@ public class Show extends Commands {
     public void execute(String[] args) {
         Hashtable<String, Dragon> dragons = hashTable;
         hashTable.forEach((k, v) -> System.out.println(v.toString()));
-        System.out.println("вывести в стандартный поток вывода все элементы коллекции в строковом представлении");
     }
 
     @Override

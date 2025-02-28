@@ -14,7 +14,6 @@ public class RemoveGreater extends Commands {
                 CollectionManager.getCollection().remove(h);
             }
         });
-
     }
 
     @Override

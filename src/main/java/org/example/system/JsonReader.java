@@ -20,7 +20,7 @@ import java.util.Collection;
 // читает данные из json файла
 public class JsonReader {
 
-    static void read(String path, CollectionManager collectionManager) throws FileNotFoundException, IOException {
+    static void read(String path) throws FileNotFoundException, IOException {
         FileInputStream fis = new FileInputStream(path); //path - путь до файла
 
         InputStreamReader isr = new InputStreamReader(fis);
@@ -33,7 +33,6 @@ public class JsonReader {
             text.append(line);
         }
 
-        // Локальная переменная для хранения прочитанных драконов
 
         Collection<Dragon> collection;
         Gson gson = new GsonBuilder().registerTypeAdapter(Dragon.class, new DragonDeserializer())
@@ -47,7 +46,7 @@ public class JsonReader {
                 }.getType());
 
         for (Dragon dragon : collection) {
-            collectionManager.hashTable.put(dragon.getName(), dragon);
+            CollectionManager.getCollection().put(dragon.getName(), dragon);
         }
 
 

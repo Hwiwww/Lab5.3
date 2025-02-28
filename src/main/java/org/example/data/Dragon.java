@@ -141,13 +141,15 @@ public class Dragon {
         return "Dragon{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", coordinates='" + coordinates + '\'' +
+                ", coordinateX='" + coordinates.getX() + '\'' +
+                ", coordinateY='" + coordinates.getY() + '\'' +
                 ", creationDate='" + creationDate + '\'' +
                 ", age='" + age + '\'' +
                 ", weight='" + weight + '\'' +
                 ", speaking='" + speaking + '\'' +
                 ", type='" + type +'\'' +
-                ", cave='" + cave + '\'' +
+                ", caveDepth='" + cave.getDepth() + '\'' +
+                ", caveNumberOfTreasures='" + cave.getNumberOfTreasures() + '\'' +
                 '}';
     }
 }
