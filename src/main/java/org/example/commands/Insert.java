@@ -12,7 +12,8 @@ public class Insert extends Commands {
     @Override
     public void execute(String[] args) {
         if (args.length == 1 && !CollectionManager.getCollection().containsKey(args[0])) {
-            Object dragon = DragonGenerator.createDragon(0L);
+            DragonGenerator dragonGenerator = new DragonGenerator();
+            Object dragon = dragonGenerator.createDragon();
             CollectionManager.add(args[0], (Dragon) dragon);
             System.out.println("Element was added to collection");
         } else {

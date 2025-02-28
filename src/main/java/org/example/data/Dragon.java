@@ -13,7 +13,7 @@ public class Dragon {
     private DragonType type; //Поле не может быть null
     private DragonCave cave; //Поле не может быть null
 
-    public Dragon(long id, String name, Coordinates coordinates, LocalDateTime creationDate, long age, int weight, Boolean speaking, DragonType type, DragonCave cave) throws IllegalArgumentException {
+    public Dragon(long id, String name, Coordinates coordinates, long age, int weight, Boolean speaking, DragonType type, DragonCave cave) throws IllegalArgumentException {
         if (id > 0) {
             this.id = id;
         } else {
@@ -21,7 +21,7 @@ public class Dragon {
         }
         this.setName(name);
         this.setCoordinates(coordinates);
-        this.creationDate = creationDate;
+        this.creationDate = LocalDateTime.now();
         this.setAge(age);
         this.setWeight(weight);
         this.setSpeaking(speaking);
@@ -39,10 +39,10 @@ public class Dragon {
 
 
     public void setName(String name) {
-        if (name != null && name.isBlank()) {
+        if (name != null || name.isBlank()) {
             this.name = name;
         } else {
-            throw new IllegalArgumentException("");
+            System.out.println("Something went wrong with argument");
         }
     }
 
