@@ -2,14 +2,15 @@ package org.example.commands;
 
 import org.example.system.FileManager;
 
-public class Save extends Commands {
-    public Save() {
-        super("save");
+public class Read extends Commands {
+    public Read() {
+        super("read");
     }
 
     @Override
     public void execute(String[] args) {
-        FileManager.saveToFile();
+        FileManager.readFile();
+        System.out.println("Collection was successfully read from file");
     }
 
     @Override

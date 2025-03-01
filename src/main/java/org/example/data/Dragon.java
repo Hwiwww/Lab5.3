@@ -37,6 +37,10 @@ public class Dragon {
         this.id = id;
     }
 
+    public void setID(long id) {
+        this.id = id;
+    }
+
 
     public void setName(String name) {
         if (name != null || name.isBlank()) {

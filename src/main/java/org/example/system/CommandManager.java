@@ -23,6 +23,10 @@ public class CommandManager {
         commandList.put("replace_if_greater", new ReplaceIfGreater());
         commandList.put("show", new Show());
         commandList.put("sum_of_age", new SumOfAge());
+        commandList.put("update_id", new UpdateId());
+        commandList.put("save", new Save());
+        commandList.put("execute_script", new ExecuteScript());
+        commandList.put("read", new Read());
     }
 
     public HashMap<String, Commands> getCommandList() {

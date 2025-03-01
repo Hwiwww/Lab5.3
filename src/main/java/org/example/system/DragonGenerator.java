@@ -88,6 +88,80 @@ public class DragonGenerator {
         return new Dragon(id, name, coordinates, age, weight, speaking, type, cave);
     }
 
+    public Dragon createDragon(Long id) {
+        String name;
+        Coordinates coordinates;
+        double coordinatesX;
+        long coordinatesY;
+        long age;
+        int weight;
+        Boolean speaking;
+        DragonType type;
+        DragonCave cave;
+        Float caveDepth;
+        int caveNumberOfTreasures;
+        System.out.println("Welcome to dragon creator!");
+        System.out.println("Write a String for dragon's name");
+        name = scanner.nextLine();
+        while (name == null || name.isEmpty()) {
+            System.out.print("Dragon's name can't be empty, try again: ");
+            name = scanner.nextLine();
+        }
+        System.out.println("Write a double for X coordinate");
+        coordinatesX = readDouble();
+        while (coordinatesX > 909) {
+            System.out.println("X coordinate can't be higher than 909, try again: ");
+            coordinatesX = readDouble();
+        }
+        System.out.println("Write a long for Y coordinates");
+        coordinatesY = readLong();
+        coordinates = new Coordinates(coordinatesX, coordinatesY);
+        System.out.println("Write a long for dragon's age");
+        age = readLong();
+        while (age < 0) {
+            System.out.println("Dragon's age can't be lower than 0, try again: ");
+            age = readLong();
+        }
+        System.out.println("Write an int for dragon's weight");
+        weight = readInt();
+        while (weight < 0) {
+            System.out.println("Dragon's weight can't be lower than 0, try again: ");
+            weight = readInt();
+        }
+        System.out.println("Write a boolean for dragon's ability to speaking");
+        speaking = readBoolean();
+        while (speaking == null) {
+            System.out.println("Dragon's ability to speaking can't be null, try again: ");
+            speaking = readBoolean();
+        }
+        System.out.println("Write a number for dragon's type (1 - WATER, 2 - UNDERGROUND, 3 - AIR, 4 - FIRE)");
+        int dragonTypeNumber;
+        do {
+            while (!scanner.hasNextInt()) {
+                System.out.println("Invalid value, try again: ");
+                scanner.next();
+            }
+            dragonTypeNumber = scanner.nextInt();
+            break;
+        } while ((dragonTypeNumber >= 1) && (dragonTypeNumber <= 4));
+        type = DragonType.values()[dragonTypeNumber - 1];
+        System.out.println("Write a Float for dragon cave's depth");
+        caveDepth = readFloat();
+        while (caveDepth == null) {
+            System.out.println("Dragon cave's depth can't be null, try again: ");
+            caveDepth = readFloat();
+        }
+        scanner.nextLine();
+        System.out.println("Write an int for dragon cave's number of treasures");
+        caveNumberOfTreasures = readInt();
+        while (caveNumberOfTreasures < 0) {
+            System.out.println("Dragon cave's number of treasures can't be lower than 0, try again: ");
+            caveNumberOfTreasures = readInt();
+        }
+        cave = new DragonCave(caveNumberOfTreasures, caveDepth);
+        return new Dragon(id, name, coordinates, age, weight, speaking, type, cave);
+    }
+
     public String readName() {
         System.out.println("Write a String for dragon's name");
         String name = readString();

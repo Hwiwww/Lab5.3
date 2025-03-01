@@ -13,7 +13,7 @@ public class Show extends Commands {
 
     @Override
     public void execute(String[] args) {
-        Hashtable<String, Dragon> dragons = hashTable;
+        Hashtable<Long, Dragon> dragons = hashTable;
         hashTable.forEach((k, v) -> System.out.println(v.toString()));
     }
 

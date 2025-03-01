@@ -14,7 +14,7 @@ public class Insert extends Commands {
         if (args.length == 1 && !CollectionManager.getCollection().containsKey(args[0])) {
             DragonGenerator dragonGenerator = new DragonGenerator();
             Object dragon = dragonGenerator.createDragon();
-            CollectionManager.add(args[0], (Dragon) dragon);
+            CollectionManager.add((Dragon) dragon);
             System.out.println("Element was added to collection");
         } else {
             throw new IllegalArgumentException("Something went wrong with element's key");

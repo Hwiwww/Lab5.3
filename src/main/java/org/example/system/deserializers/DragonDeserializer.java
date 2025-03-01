@@ -16,6 +16,7 @@ public class DragonDeserializer implements JsonDeserializer<Dragon> {
         JsonObject jsonObject = json.getAsJsonObject();
 
         Dragon dragon = new Dragon();
+        dragon.setID(jsonObject.get("id").getAsLong());
         dragon.setName(jsonObject.get("name").getAsString());
         dragon.setCoordinates((Coordinates) context.deserialize(jsonObject.get("coordinates"), Coordinates.class));
         dragon.setCreationDate((LocalDateTime) context.deserialize(jsonObject.get("creationDate"), LocalDateTime.class));

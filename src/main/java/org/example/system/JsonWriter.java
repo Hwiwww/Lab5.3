@@ -16,8 +16,9 @@ import java.time.LocalDateTime;
 
 
 public class JsonWriter {
+    public static void write() {
+        String fileName = "./data.json";
 
-    public void wrtie(String fileName, CollectionManager collectionManager) {
         Gson gson = new GsonBuilder()
                 .setPrettyPrinting()
                 .registerTypeAdapter(Dragon.class, new DragonSerializer())
@@ -28,11 +29,9 @@ public class JsonWriter {
                 .create();
 
         try (FileWriter writer = new FileWriter(fileName)) {
-            gson.toJson(collectionManager.hashTable, writer);
+            gson.toJson(CollectionManager.getCollection(), writer);
         } catch (IOException e) {
             System.err.println("Something went wrong while writing collection to file.");
         }
-
-
     }
 }
