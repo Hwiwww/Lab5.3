@@ -9,7 +9,8 @@ public class Coordinates {
         this.y = y;
     }
 
-    public Coordinates() {}
+    public Coordinates() {
+    }
 
     public double getX() {
         return x;
@@ -20,7 +21,11 @@ public class Coordinates {
     }
 
     public void setX(double x) {
-        this.x = x;
+        if (x < 909) {
+            this.x = x;
+        } else {
+            throw new IllegalArgumentException("x cannot be greater than 909.");
+        }
     }
 
     public void setY(long y) {
