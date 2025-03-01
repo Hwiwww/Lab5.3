@@ -1,0 +1,21 @@
+[
+  {
+    "415775": {
+      "id": 415775,
+      "name": "debil",
+      "coordinates": {
+        "coordinatesX": 1.0,
+        "coordinatesY": 1
+      },
+      "creationDate": "2025-03-01",
+      "age": 1,
+      "weight": 1,
+      "speaking": true,
+      "dragonType": "UNDERGROUND",
+      "dragonCave": {
+        "dragonCaveDepth": 1.0,
+        "dragonCaveNumberOfTreasures": 1
+      }
+    }
+  }
+]
