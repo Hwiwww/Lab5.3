@@ -9,7 +9,7 @@ public class Read extends Commands {
 
     @Override
     public void execute(String[] args) {
-        FileManager.readFile();
+        FileManager.readFile(args[0]);
         System.out.println("Collection was successfully read from file");
     }
 

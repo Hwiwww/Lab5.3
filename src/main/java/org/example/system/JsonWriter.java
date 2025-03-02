@@ -12,6 +12,7 @@ import org.example.system.serializers.*;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 
@@ -25,7 +26,7 @@ public class JsonWriter {
                 .registerTypeAdapter(Coordinates.class, new CoordinatesSerializer())
                 .registerTypeAdapter(DragonCave.class, new DragonCaveSerializer())
                 .registerTypeAdapter(DragonType.class, new DragonTypeSerializer())
-                .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeSerializer())
+                .registerTypeAdapter(LocalDate.class, new LocalDateTimeSerializer())
                 .create();
 
         try (FileWriter writer = new FileWriter(fileName)) {

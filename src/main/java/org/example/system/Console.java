@@ -2,27 +2,64 @@ package org.example.system;
 
 import org.example.commands.Commands;
 
+import javax.xml.crypto.Data;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Scanner;
 
 import static org.example.system.CommandManager.commandList;
 
 public class Console {
-    String fileName;
+    private static Console console;
+    Scanner scanner;
 
-    public void start(String fileName) {
+    public static Console getInstance() {
+        if(console == null){
+            console = new Console();
+        }
+        return console;
+    }
 
+
+    public Scanner getScanner() {
+        return scanner;
+    }
+
+
+    // private final Scanner scanner;
+
+//    public Console(Scanner scanner) {
+//        this.scanner = scanner;
+//    }
+
+    public void start(InputStream input, String[] args) {
+        scanner = new Scanner(input);
         CommandManager commandManager = new CommandManager();
-        Scanner scanner = new Scanner(System.in);
         CollectionManager collectionManager = new CollectionManager();
+        FileManager fileManager = new FileManager();
+        // DataReader reader = new DataReader();
+        String path = args[0];
+
+        try {
+            System.out.println("Downloading data from file...");
+            commandManager.getCommandList().get("read").execute(args);
+            // data_path = args[0];
+            // System.out.println(TextColor.ANSI_BLUE + "Everything is OK." + TextColor.ANSI_RESET);
+        } catch (Exception e) {
+            System.out.println("");
+        }
+
+        System.out.println("Welcome to app!");
+
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
             String[] commandArgs = line.split(" ");
-            if (commandArgs.length > 1) {
+            if (commandArgs.length >= 1) {
                 String commandLine = commandArgs[0];
-                String[] args = commandArgs;
+                String[] arguments = commandArgs;
                 if (commandList.containsKey(commandLine)) { // либо через keySet().contains
                     Commands command = commandList.get(commandLine);
-                    command.execute(args);
+                    command.execute(arguments);
                 } else {
                     System.err.println("Unknown command: " + line);
                 }

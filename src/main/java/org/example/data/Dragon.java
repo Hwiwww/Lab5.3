@@ -1,12 +1,13 @@
 package org.example.data;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Dragon {
     private long id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
-    private java.time.LocalDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
+    private java.time.LocalDate creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
     private long age; //Значение поля должно быть больше 0
     private int weight; //Значение поля должно быть больше 0
     private Boolean speaking; //Поле может быть null
@@ -21,7 +22,7 @@ public class Dragon {
         }
         this.setName(name);
         this.setCoordinates(coordinates);
-        this.creationDate = LocalDateTime.now();
+        this.creationDate = LocalDate.now();
         this.setAge(age);
         this.setWeight(weight);
         this.setSpeaking(speaking);
@@ -46,7 +47,7 @@ public class Dragon {
         if (name != null || name.isBlank()) {
             this.name = name;
         } else {
-            System.out.println("Something went wrong with argument");
+            throw new IllegalArgumentException("Argument is incorrect");
         }
     }
 
@@ -55,11 +56,11 @@ public class Dragon {
         if (coordinates != null) {
             this.coordinates = coordinates;
         } else {
-            throw new IllegalArgumentException("");
+            throw new IllegalArgumentException("Argument is incorrect");
         }
     }
 
-    public void setCreationDate(LocalDateTime creationDate) {
+    public void setCreationDate(LocalDate creationDate) {
         this.creationDate = creationDate;
     }
 
@@ -68,7 +69,7 @@ public class Dragon {
         if (age > 0) {
             this.age = age;
         } else {
-            throw new IllegalArgumentException("");
+            throw new IllegalArgumentException("Argument is incorrect");
         }
     }
 
@@ -76,7 +77,7 @@ public class Dragon {
         if (weight > 0) {
             this.weight = weight;
         } else {
-            throw new IllegalArgumentException("");
+            throw new IllegalArgumentException("Argument is incorrect");
         }
     }
 
@@ -84,7 +85,7 @@ public class Dragon {
         if (speaking != null) {
             this.speaking = speaking;
         } else {
-            throw new IllegalArgumentException("");
+            throw new IllegalArgumentException("Argument is incorrect");
         }
     }
 
@@ -92,7 +93,7 @@ public class Dragon {
         if (type != null) {
             this.type = type;
         } else {
-            throw new IllegalArgumentException("");
+            throw new IllegalArgumentException("Argument is incorrect");
         }
     }
 
@@ -100,7 +101,7 @@ public class Dragon {
         if (cave != null) {
             this.cave = cave;
         } else {
-            throw new IllegalArgumentException("");
+            throw new IllegalArgumentException("Argument is incorrect");
         }
     }
 
@@ -116,7 +117,7 @@ public class Dragon {
         return coordinates;
     }
 
-    public LocalDateTime getCreationDate() {
+    public LocalDate getCreationDate() {
         return creationDate;
     }
 

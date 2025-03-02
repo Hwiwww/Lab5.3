@@ -12,9 +12,12 @@ public class CoordinatesDeserializer implements JsonDeserializer<Coordinates> {
         JsonObject jsonObject = json.getAsJsonObject();
 
         Coordinates coordinates = new Coordinates();
-        coordinates.setX(jsonObject.get("coordinatesX").getAsDouble());
-        coordinates.setY(jsonObject.get("coordinatesY").getAsLong());
-
+        if (jsonObject.has("coordinatesX") && !jsonObject.get("coordinatesX").isJsonNull()) {
+            coordinates.setX(jsonObject.get("coordinatesX").getAsDouble());
+        }
+        if (jsonObject.has("coordinatesY") && !jsonObject.get("coordinatesY").isJsonNull()) {
+            coordinates.setY(jsonObject.get("coordinatesY").getAsLong());
+        }
         return coordinates;
     }
 }

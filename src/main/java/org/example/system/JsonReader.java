@@ -23,17 +23,26 @@ public class JsonReader {
 
 
 
-    static Hashtable<Long, Dragon> read() {
-        String path = "data.json";
+    static Hashtable<Long, Dragon> read(String filePath) {
+        String path = filePath;
         Hashtable<Long, Dragon> hashtable = new Hashtable<>();
-        List<Dragon> dragons;
 
-        try {
-//            FileInputStream fis = new FileInputStream(path); //path - путь до файла
-//            InputStreamReader isr = new InputStreamReader(fis);
-//            BufferedReader br = new BufferedReader(isr);
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(path), "UTF-8"))) {
+//
 
-            InputStreamReader reader = new InputStreamReader(new FileInputStream(path));
+            // InputStreamReader reader = new InputStreamReader(new FileInputStream(path));
+
+            // BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(path)));
+            // String line;
+            // StringBuilder text = new StringBuilder();
+
+//            while((line = reader.readLine()) != null) {
+//                text.append(line);
+//            }
+//            if (text.isEmpty()){
+//                System.out.println("No element to add, your collection is clear");
+//            }
+
 
 //            String line;
 //            StringBuilder text = new StringBuilder();
@@ -51,14 +60,15 @@ public class JsonReader {
 
 
             Type listType = new TypeToken<List<Dragon>>() {}.getType();
-            dragons = gson.fromJson(reader, listType);
+            List<Dragon> dragons = gson.fromJson(reader, listType);
 
             for (Dragon dragon : dragons) {
                 hashtable.put(dragon.getID(), dragon);
             }
 
         } catch (IOException e) {
-            throw new RuntimeException();
+            System.err.println("Something wrong with reading a file");
+            throw new RuntimeException("Не удалось прочитать файл JSON", e);
         }
         return hashtable;
     }
