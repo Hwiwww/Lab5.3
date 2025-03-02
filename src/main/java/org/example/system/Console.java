@@ -5,6 +5,7 @@ import org.example.commands.Commands;
 import javax.xml.crypto.Data;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.Scanner;
 
 import static org.example.system.CommandManager.commandList;
@@ -56,10 +57,14 @@ public class Console {
             String[] commandArgs = line.split(" ");
             if (commandArgs.length >= 1) {
                 String commandLine = commandArgs[0];
-                String[] arguments = commandArgs;
+                String[] arguments = Arrays.copyOfRange(commandArgs, 1, commandArgs.length);
                 if (commandList.containsKey(commandLine)) { // либо через keySet().contains
                     Commands command = commandList.get(commandLine);
-                    command.execute(arguments);
+                    try {
+                        command.execute(arguments);
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Something wrong with command arguments");
+                    }
                 } else {
                     System.err.println("Unknown command: " + line);
                 }

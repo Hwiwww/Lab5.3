@@ -9,15 +9,15 @@ public class FilterLessThanWeight extends Commands {
 
     @Override
     public void execute(String[] args) {
-        if (args.length == 1) {
+        try {
             CollectionManager.getCollection().forEach((key, dragon) -> {
                 int comparisonWeight = Integer.parseInt(args[0]);
                 if (dragon.getWeight() < comparisonWeight) {
                     System.out.println(dragon.toString());
                 }
             });
-        } else {
-            throw new IllegalArgumentException("");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Something wrong with arguments");
         }
     }
 
