@@ -3,6 +3,8 @@ package org.example.commands;
 import org.example.data.Dragon;
 import org.example.system.CollectionManager;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Hashtable;
 
 public class MinByCoordinates extends Commands {
@@ -12,15 +14,19 @@ public class MinByCoordinates extends Commands {
 
     @Override
     public void execute(String[] args) {
-        Hashtable dragonCollection = CollectionManager.getCollection();
-        CollectionManager.getCollection().forEach((key, dragon) -> {
-            Dragon dragonWithMinCoordinates = (Dragon) dragonCollection.get("1");
-            int minSumOfCoordinates = (int) dragonWithMinCoordinates.getCoordinates().getX() + (int) dragonWithMinCoordinates.getCoordinates().getY();
-            int sumOfCoordinates = (int) dragon.getCoordinates().getX() + (int) dragon.getCoordinates().getY();;
-            if (minSumOfCoordinates > sumOfCoordinates) {
-                dragonWithMinCoordinates = dragon;
-            }
-        });
+        System.out.println(minByCoordinates().toString());
+    }
+
+    public Dragon minByCoordinates() {
+        if (CollectionManager.getCollection().isEmpty()) {
+            return null;
+        } else {
+            Comparator<Dragon> dragonComparator = Comparator
+                    .comparing((Dragon d) -> d.getCoordinates().getX())
+                    .thenComparing(d -> d.getCoordinates().getY());
+            Dragon min = Collections.min(CollectionManager.getCollection().values(), dragonComparator);
+            return min;
+        }
     }
 
     @Override
